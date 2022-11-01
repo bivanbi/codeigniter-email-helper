@@ -7,7 +7,7 @@ use Config\Email;
 
 class EmailDataImpl implements EmailData
 {
-    private Email|array|null $config;
+    private Email|array|null $config = null;
 
     /** @var Contact */
     private Contact $sender;
