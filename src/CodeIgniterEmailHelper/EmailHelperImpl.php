@@ -14,8 +14,8 @@ class EmailHelperImpl implements EmailHelper
         Constants::EMAIL_DEBUG_OUTPUT_BODY
     ];
 
-    private ?EmailData $emailData;
-    private ?CodeIgniterEmailAdapter $emailAdapter;
+    private EmailData $emailData;
+    private CodeIgniterEmailAdapter $emailAdapter;
 
     /**
      * @param EmailData $emailData
@@ -139,7 +139,7 @@ class EmailHelperImpl implements EmailHelper
      */
     private function exceptIfNotInitialized()
     {
-        if (null === $this->emailAdapter || null === $this->emailData) {
+        if (!isset($this->emailAdapter) || !isset($this->emailData)) {
             throw new EmailPreparationException("CodeIgniterEmailHelper is not initialized. Call initialize() first.");
         }
     }
